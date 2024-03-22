@@ -77,10 +77,11 @@ class theme_city_core_renderer extends core_renderer {
 
         // Get some navigation opts.
         $opts = user_get_user_navigation_info($user, $this->page);
+        $city = user_get_user_details($user)['city'];
 
         $avatarclasses = "avatars";
         $avatarcontents = html_writer::span($opts->metadata['useravatar'], 'avatar current');
-        $usertextcontents = $opts->metadata['userfullname'];
+        $usertextcontents = $opts->metadata['userfullname'].' ('.$city.')';
 
         // Other user.
         if (!empty($opts->metadata['asotheruser'])) {
